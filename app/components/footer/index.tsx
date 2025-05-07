@@ -1,4 +1,3 @@
-import {Flag} from "lucide-react";
 import {useFlags} from "@flags-gg/react-library";
 import { Link } from "react-router";
 import {siteConfig} from "~/appconfig";
