@@ -2,11 +2,10 @@ name: Pull Requests
 on:
   workflow_dispatch:
   pull_request:
-    types:
-      - opened
-      - edited
-      - reopened
-      - synchronize
+  push:
+    branches:
+      - main
+      - railway
 
 jobs:
   test:
@@ -19,7 +18,8 @@ jobs:
           fetch-depth: 1
       - uses: pnpm/action-setup@v3
         with:
-          version: 9
+          version: 10
+      - run: npm i --package-lock-only
       - run: pnpm install --frozen-lockfile
       #- run: pnpm test
   qodana:
@@ -36,11 +36,13 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
       - name: "Qodana Scan"
-        uses: JetBrains/qodana-action@v2023.3.2
+        uses: JetBrains/qodana-action@v2024.3
         with:
           upload-result: true
+          pr-mode: true
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
+          QODANA_ENDPOINT: 'https://qodana.cloud'
   automerge:
     runs-on: ubuntu-latest
     permissions:
