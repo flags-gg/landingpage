@@ -1,10 +1,10 @@
 import {useFlags} from "@flags-gg/react-library";
-import {Flag, Menu} from "lucide-react";
 import {Link} from "react-router";
 import { Button } from "~/components/ui/button";
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "~/components/ui/sheet";
 import {Separator} from "~/components/ui/separator";
 import {siteConfig} from "~/appconfig";
+import {Menu} from "lucide-react";
 
 export default function Header() {
   const {is} = useFlags()
