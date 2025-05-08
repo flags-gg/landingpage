@@ -8,7 +8,7 @@ import {EnterpriseTier} from "~/components/pricing/enterprise";
 export const Pricing = () => {
   const {is} = useFlags()
 
-  if (!is("pricing").enabled()) return null
+  if (is("pricing").disabled()) return null
 
   return (
     <section id="pricing" className="py-20">
