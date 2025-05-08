@@ -8,7 +8,7 @@ export const Theme = () => {
   const {is} = useFlags();
   const [_, setTheme] = useAtom(themeAtom)
 
-  if (!is("darkmode").enabled()) return null
+  if (is("darkmode").disabled()) return null
 
   return (
     <DropdownMenu>
