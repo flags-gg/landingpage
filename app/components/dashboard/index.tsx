@@ -62,11 +62,13 @@ export const Dashboard = () => {
                   Try the dashboard
                 </Link>
               </Button>
-              <Button size="lg" variant="outline" asChild={true}>
-                <Link to={siteConfig.demoURL}>
-                  Watch demo
-                </Link>
-              </Button>
+              {is("demo").enabled() && (
+                <Button size="lg" variant="outline" asChild={true}>
+                  <Link to={siteConfig.demoURL}>
+                    Watch demo
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
         </div>

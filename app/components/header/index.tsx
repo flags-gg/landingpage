@@ -5,6 +5,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import {Separator} from "~/components/ui/separator";
 import {siteConfig} from "~/appconfig";
 import {Menu} from "lucide-react";
+import {Theme} from "~/components/header/theme";
 
 export default function Header() {
   const {is} = useFlags()
@@ -49,6 +50,7 @@ export default function Header() {
               Get Started
             </Link>
           </Button>
+          <Theme />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
