@@ -27,10 +27,11 @@ export const HowItWorks = () => {
         </div>
         <div className="mx-auto max-w-5xl py-12">
           <Tabs defaultValue="install" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-8">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="install">1. Install the SDK</TabsTrigger>
               <TabsTrigger value="create">2. Create Flags</TabsTrigger>
               <TabsTrigger value="implement">3. Implement in Code</TabsTrigger>
+              <TabsTrigger value={"secretmenu"}>4. Secret Menu</TabsTrigger>
             </TabsList>
             <TabsContent value="install" className="space-y-4">
               <Card>
@@ -74,6 +75,22 @@ export const HowItWorks = () => {
                     <code className="text-sm">
                       {"if (is('newFeature').enabled()) {\n  // Show new feature\n}"}
                     </code>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            <TabsContent value="secretmenu" className="space-y-4">
+              <Card>
+                <CardHeader>
+                  <CardTitle>Secret Menu</CardTitle>
+                  <CardDescription>
+                    You can choose a set of key presses to activate a secret menu (if you choose to enable secret menu).
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="rounded-md bg-muted p-4 w-full">
+                    You can see an example of this live by pressing B five times.
+                    <img src={"/images/secretmenu.png"} alt={"Secret Menu"} width={200} height={220} className="mx-auto aspect-rectangle overflow-hidden rounded-xl object-scale-down h-220 w-200 object-center sm:w-fullimg" />
                   </div>
                 </CardContent>
               </Card>
