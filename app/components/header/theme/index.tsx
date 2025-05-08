@@ -1,6 +1,6 @@
 import { useFlags } from "@flags-gg/react-library";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "~/components/ui/dropdown-menu";
-import {MoonIcon, SunIcon, SunMoonIcon, MonitorCogIcon} from "lucide-react";
+import {MoonIcon, SunIcon, SunMoonIcon} from "lucide-react";
 import {themeAtom} from "~/lib/state";
 import {useAtom} from "jotai";
 
