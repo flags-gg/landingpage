@@ -9,7 +9,7 @@ import {siteConfig} from "~/appconfig";
 export const Hero = () => {
   const {is} = useFlags()
 
-  if (!is("hero").enabled()) return null
+  if (is("hero").disabled()) return null
 
   return (
     <section className="py-20 md:py-28">

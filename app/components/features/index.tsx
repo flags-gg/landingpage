@@ -6,7 +6,7 @@ import {Code, GitBranch, Globe, LayoutDashboard, Shield, Zap} from "lucide-react
 export const Features = () => {
   const {is} = useFlags()
 
-  if (!is("features").enabled()) return null
+  if (is("features").disabled()) return null
 
   return (
     <section id="features" className="bg-muted/50 py-20">

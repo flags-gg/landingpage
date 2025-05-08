@@ -4,10 +4,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs"
 import {Card, CardContent, CardDescription, CardHeader, CardTitle} from "../ui/card"
 
 export const HowItWorks = () => {
-  const {is} = useFlags()
-  is("tester").initialize(false)
+  const {initialize, is} = useFlags()
+  initialize("tester", false)
 
-  if (!is("how it works").enabled()) return null
+  if (is("how it works").disabled()) return null
 
   return (
     <section id="how-it-works" className="py-20">
@@ -55,9 +55,13 @@ export const HowItWorks = () => {
                   <CardDescription>Define your feature flags in our dashboard with a few clicks.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <div className="rounded-md bg-muted p-4 w-full">
-                    Alternatively if you want an offline flag <br />
-                    <code className="text-sm">is("tester").initialize(false)</code>
+                  Alternatively if you want an offline flag:
+                  <div className="rounded-md bg-muted p-2 w-full mt-2">
+                    <code className="text-sm">
+                      {"const {initialize} = useFlags()"}
+                      <br />
+                      {"initialize(\"tester\", false)"}
+                    </code>
                   </div>
                 </CardContent>
               </Card>
@@ -73,7 +77,11 @@ export const HowItWorks = () => {
                 <CardContent>
                   <div className="rounded-md bg-muted p-4 w-full">
                     <code className="text-sm">
-                      {"if (is('newFeature').enabled()) {\n  // Show new feature\n}"}
+                      {"const {is} = useFlags()"}
+                      <br />
+                      {"if (is('newFeature').enabled()) {"}<br />
+                      {"// Show new feature"}<br />
+                      {"}"}
                     </code>
                   </div>
                 </CardContent>
