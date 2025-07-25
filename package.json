@@ -9,7 +9,7 @@
     "typecheck": "react-router typegen && tsc"
   },
   "dependencies": {
-    "@flags-gg/react-library": "^1.14.1",
+    "@flags-gg/react-library": "^1.14.3",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.14",
     "@radix-ui/react-separator": "^1.1.6",
