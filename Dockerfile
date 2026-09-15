@@ -1,9 +1,9 @@
-FROM oven/bun:1-alpine AS development-dependencies-env
+FROM oven/bun:1.4.2-alpine AS development-dependencies-env
 COPY . /app
 WORKDIR /app
 RUN bun install --frozen-lockfile
 
-FROM oven/bun:1-alpine AS production-dependencies-env
+FROM oven/bun:1.4.2-alpine AS production-dependencies-env
 COPY ./package.json bun.lock /app/
 WORKDIR /app
 RUN bun install --frozen-lockfile --production
