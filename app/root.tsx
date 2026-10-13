@@ -26,6 +26,30 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
+// ponytail: script-src needs 'unsafe-inline' for React Router's inline hydration scripts;
+// switch to per-request nonces (custom entry.server.tsx + <Scripts nonce>) to drop it.
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline'",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' https://fonts.gstatic.com",
+  "img-src 'self' data:",
+  "connect-src 'self' https://api.flags.gg",
+  "frame-ancestors 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join("; ");
+
+export const headers: Route.HeadersFunction = () => ({
+  // dev server needs HMR websocket + vite inline modules, so only enforce CSP in builds
+  ...(import.meta.env.DEV ? {} : { "Content-Security-Policy": csp }),
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+});
+
 export function Layout({ children }: { children: ReactNode }) {
   const [theme] = useAtom(themeAtom);
 
