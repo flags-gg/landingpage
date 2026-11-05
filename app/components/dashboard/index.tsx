@@ -14,10 +14,11 @@ export const Dashboard = () => {
         <div className="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]">
           <img
             src="/images/dashboard.png"
-            width={550}
-            height={550}
-            alt="Dashboard preview"
-            className="mx-auto aspect-rectangle overflow-hidden rounded-xl object-cover object-center sm:w-full"
+            width={2400}
+            height={1080}
+            alt="Flags dashboard showing Development, Staging, and Production, with rollout percentages and flag promotion controls"
+            loading="lazy"
+            className="mx-auto h-auto w-full self-center rounded-xl border shadow-lg"
           />
           <div className="flex flex-col justify-center space-y-4">
             <Badge variant="outline" className="w-fit bg-primary/10 text-primary border-primary/20">
